@@ -1,3 +1,6 @@
+# Ignore my secret file
+sishaar*
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
