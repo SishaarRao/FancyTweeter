@@ -10,8 +10,6 @@ def main(KEYWORD):
     req = urllib.request.Request('http://www.dictionaryapi.com/api/v1/references/thesaurus/xml/'+KEYWORD+'?key='+THESAURAS_KEY)
     try:
         html = urllib.request.urlopen(req).read()
-#        with urllib.request.urlopen(req) as response:
-#            html = response.read()
     except Exception as e:
         print(e)
         exit(0)
@@ -19,4 +17,5 @@ def main(KEYWORD):
     print(html)
     root = ET.fromstring(html)[0][2][2].text.split(",")
     print(root)
+    print(max(root, key=len))
 main("hello")
