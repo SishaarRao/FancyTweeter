@@ -4,6 +4,7 @@
 from sishaarSecret import THESAURAS_KEY
 # from secret import THESAURAS_KEY
 import urllib.request
+import re
 import lxml.etree as ET
 
 def main(KEYWORD):
@@ -15,7 +16,15 @@ def main(KEYWORD):
         exit(0)
 
     print(html)
-    root = ET.fromstring(html)[0][2][2].text.split(",")
-    print(root)
-    print(max(root, key=len))
-main("hello")
+
+    try:
+        if "<sn>" not in str(html):
+            root = ET.fromstring(html)[0][2][2].text.split(",")
+        else:
+            root = ET.fromstring(html)[0][2][3].text.split(",")
+        print(root)
+        print(max(root, key=len))
+    except IndexError as e:
+        print("Not a valid entry")
+        exit(0)
+main("how")
