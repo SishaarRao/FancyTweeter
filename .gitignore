@@ -1,5 +1,6 @@
-# Ignore my secret file
+# Ignore local files
 sishaar*
+gitbash*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
