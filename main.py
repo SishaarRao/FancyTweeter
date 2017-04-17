@@ -7,7 +7,7 @@ import urllib.request
 import re
 import lxml.etree as ET
 
-def main(KEYWORD):
+def parse(KEYWORD):
     req = urllib.request.Request('http://www.dictionaryapi.com/api/v1/references/thesaurus/xml/'+KEYWORD+'?key='+THESAURAS_KEY)
     try:
         html = urllib.request.urlopen(req).read()
@@ -27,4 +27,4 @@ def main(KEYWORD):
     except IndexError as e:
         print("Not a valid entry")
         exit(0)
-main("how")
+parse("because")
