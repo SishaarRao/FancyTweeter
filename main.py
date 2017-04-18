@@ -6,8 +6,10 @@ from sishaarSecret import THESAURAS_KEY
 import urllib.request
 import re
 import lxml.etree as ET
+from stop_words import get_stop_words
 
 def parse(KEYWORD):
+    # Request to the Thesauras API
     req = urllib.request.Request('http://www.dictionaryapi.com/api/v1/references/thesaurus/xml/'+KEYWORD+'?key='+THESAURAS_KEY)
     try:
         html = urllib.request.urlopen(req).read()
@@ -15,16 +17,29 @@ def parse(KEYWORD):
         print(e)
         exit(0)
 
-    print(html)
-
+    # Get the longest synonym
     try:
         if "<sn>" not in str(html):
-            root = ET.fromstring(html)[0][2][2].text.split(",")
+            root = re.split(",| ", ET.fromstring(html)[0][2][2].text)
         else:
-            root = ET.fromstring(html)[0][2][3].text.split(",")
-        print(root)
-        print(max(root, key=len))
+            root = re.split(",| ", ET.fromstring(html)[0][2][3].text)
+        return max(root, key=len)
     except IndexError as e:
-        print("Not a valid entry")
-        exit(0)
-parse("because")
+        # Not a valid entry
+        return KEYWORD
+
+# Separate the input into words
+strInput = "I hate Donald Trump"
+strInput = re.compile('[^a-zA-Z]').sub(' ', strInput).split()
+
+# Loop through the input and parse each word, disregarding articles or stop words
+stop_words = get_stop_words('english')
+articles = open("common_articles.txt").read().split()
+print(stop_words)
+for word in strInput:
+    if word not in stop_words and word not in articles:
+        print(parse(word))
+    else:
+        print(word)
+        
+    
