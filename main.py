@@ -9,6 +9,8 @@ import lxml.etree as ET
 from stop_words import get_stop_words
 import tweepy, time, sys
 
+USERNAME = "Sishaar_Rao_API"
+
 def parse(KEYWORD):
     # Request to the Thesauras API
     req = urllib.request.Request('http://www.dictionaryapi.com/api/v1/references/thesaurus/xml/'+KEYWORD+'?key='+THESAURAS_KEY)
@@ -31,18 +33,20 @@ def parse(KEYWORD):
 
 def tweet(strInput):
     # Separate the input into words
-    strInput = "I hate Donald Trump"
     strInput = re.compile('[^a-zA-Z]').sub(' ', strInput).split()
     
     # Loop through the input and parse each word, disregarding articles or stop words
     stop_words = get_stop_words('english')
     articles = open("common_articles.txt").read().split()
-    print(stop_words)
+    toTweet = ""
     for word in strInput:
         if word not in stop_words and word not in articles:
-            print(parse(word))
+            toTweet += parse(word) + " "
         else:
-            print(word)
+            toTweet += word + " "
+    return toTweet
+
+
 
 # Create client
 try:
@@ -65,9 +69,8 @@ else:
 
 class MyStreamListener(tweepy.StreamListener):
     def on_status(self, status):
-        print(status.text)
-        if not "@"+USERNAME in status.text:
-            client.update_status("@" + (USERNAME) + " "  + message, status.id_str)
+        client.update_status("@" + status.user.screen_name + " "  + tweet(status.text.splpit(' ', 1)[1]), status.id_str)
+        
     def on_error(self, status_code):
         if status_code == 420:
             return False
@@ -76,4 +79,6 @@ class MyStreamListener(tweepy.StreamListener):
 myStreamListener = MyStreamListener()
 myStream = tweepy.Stream(auth = client.auth, listener=myStreamListener)
 
+# Begin
+myStream.filter(track=[USERNAME])
 
