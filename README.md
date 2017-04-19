@@ -141,12 +141,12 @@ Reading through logs, we can see the message ``` 2017-03-26T01:15:19.037822+00:0
 ## Built With
 
 * [Tweepy](http://www.tweepy.org) - Python library for Twitter API
-* [Heroku](https://www.heroku.com/) - Deployment of Tweet@Trump
+* [Heroku](https://www.heroku.com/) - Deployment of FancyTweeter
 * [Emacs!!](https://www.gnu.org/software/emacs/) - Native Development
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://github.com/SishaarRao/Tweet-at-Trump/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](https://github.com/SishaarRao/FancyTweeter/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Authors
 
@@ -154,13 +154,16 @@ Please read [CONTRIBUTING.md](https://github.com/SishaarRao/Tweet-at-Trump/blob/
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/SishaarRao/Tweet-at-Trump/blob/master/LICENSE) file for details
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/SishaarRao/FancyTweeter/blob/master/LICENSE) file for details
 
 ## Acknowledgments
 
 I love you Jack.
+![PoonSlayer][jackFace]
+
+[jackFace]: http://i.imgur.com/6SQUQRg.png "PoonSlayer"
 
 [LICENSE]: ./LICENSE
 [license-badge]: https://img.shields.io/badge/license-MIT-brightgreen.svg
-[RELEASE]: https://github.com/SishaarRao/Tweet-at-Trump/releases/tag/v1.0.0
+[RELEASE]: https://github.com/SishaarRao/FancyTweeter/releases/tag/v1.0.0
 [release-badge]: https://img.shields.io/badge/Version-1.0.0-brightgreen.svg
