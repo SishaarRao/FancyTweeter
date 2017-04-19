@@ -69,7 +69,7 @@ else:
 
 class MyStreamListener(tweepy.StreamListener):
     def on_status(self, status):
-        client.update_status("@" + status.user.screen_name + " "  + tweet(status.text.splpit(' ', 1)[1]), status.id_str)
+        client.update_status("@" + status.user.screen_name + " "  + tweet(status.text.split(' ', 1)[1]), status.id_str)
         
     def on_error(self, status_code):
         if status_code == 420:
