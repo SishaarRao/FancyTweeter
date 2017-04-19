@@ -2,9 +2,7 @@
 [![version][release-badge]][RELEASE] [![license][license-badge]][LICENSE]
 
 
-Pettiness? Fuck yea
-
-Jack Schefer? The love of my life💕💕💕
+Pettiness? Fuck yea. Jack Schefer? The love of my life💕💕💕
 
 This application allows a twitter account to respond to any mention with the same exact words but with the closest synonyms for the words in the tweet.
 
