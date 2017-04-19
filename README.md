@@ -49,13 +49,12 @@ ACCESS_SECRET = 'INSERT YOUR SECRET ACCESS KEY HERE'
 ```
 
 Go in and edit *main.py* with the USERNAME that the account is tweeting from
-Similarly, comment out the sishaarSecret import statement and uncomment the secret import statement
+
 
 ``` Python
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# from sishaarSecret import THESAURAS_KEY, CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_SECRET
 from secret import THESAURAS_KEY, CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_SECRET
 import urllib.request
 import re
@@ -63,7 +62,7 @@ import lxml.etree as ET
 from stop_words import get_stop_words
 import tweepy, time, sys
 
-USERNAME = "Sishaar_Rao_API"
+USERNAME = "INSERT USERNAME HERE"
 ...
 ```
 
