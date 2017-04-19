@@ -1,15 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from sishaarSecret import THESAURAS_KEY, CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_SECRET
-# from secret import THESAURAS_KEY, CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_SECRET
+
+from secret import THESAURAS_KEY, CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_SECRET
 import urllib.request
 import re
 import lxml.etree as ET
 from stop_words import get_stop_words
 import tweepy, time, sys
 
-USERNAME = "Sishaar_Rao_API"
+USERNAME = "INSERT USERNAME HERE"
 
 def parse(KEYWORD):
     # Request to the Thesauras API
