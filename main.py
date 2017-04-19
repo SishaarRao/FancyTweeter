@@ -46,8 +46,6 @@ def tweet(strInput):
             toTweet += word + " "
     return toTweet
 
-
-
 # Create client
 try:
     auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
@@ -65,7 +63,6 @@ except tweepy.TweepError as e:
 else:
     print('Connected as @{}, you can start to tweet !'.format(client.me().screen_name))
     client_id = client.me().id
-    
 
 class MyStreamListener(tweepy.StreamListener):
     def on_status(self, status):
@@ -81,4 +78,3 @@ myStream = tweepy.Stream(auth = client.auth, listener=myStreamListener)
 
 # Begin
 myStream.filter(track=[USERNAME])
-
