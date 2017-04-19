@@ -3,6 +3,7 @@
 
 
 Pettiness? Fuck yea
+Jack Schefer? The love of my life💕💕💕
 
 This application allows a twitter account to respond to any mention with the same exact words but with the closest synonyms for the words in the tweet.
 
@@ -49,16 +50,21 @@ ACCESS_SECRET = 'INSERT YOUR SECRET ACCESS KEY HERE'
 ```
 
 Go in and edit *main.py* with the USERNAME that the account is tweeting from
+Similarly, comment out the sishaarSecret import statement and uncomment the secret import statement
 
 ``` Python
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+# from sishaarSecret import THESAURAS_KEY, CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_SECRET
+from secret import THESAURAS_KEY, CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_SECRET
+import urllib.request
+import re
+import lxml.etree as ET
+from stop_words import get_stop_words
 import tweepy, time, sys
-from secret import CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_SECRET
 
-# User that you want to immediately respond to
-USERNAME = "realDonaldTrump"
+USERNAME = "Sishaar_Rao_API"
 ...
 ```
 
@@ -69,11 +75,11 @@ You can run *main.py* on your local machine.
 ``` Shell 
 $ python3 main.py
 ```
-Note: Your account will only automatically tweet while the program is running, so set the @ account to your friend's, tell them to tweet while it's running, and see if the program tweets in response.
+Note: The account will only automatically tweet while the program is running, so tell your friend to tweet at the account while it's running, and see if the program tweets in response.
 
 ## Deployment
 
-Tweet@Trump will be deployed through Heroku so that you don't have to run it locally on your system.
+FancyTweeter will be deployed through Heroku so that you don't have to run it locally on your system.
 
 Make sure you have heroku and git on your system, and make sure to login to both.
 
@@ -89,7 +95,7 @@ Run *setup.sh*
 $ bash setup.sh
 ```
 
-After a few seconds, run this command. If you see 'worker: crashed', refer to [Errors](#errors). If not, then Tweet@Trump is up!
+After a few seconds, run this command. If you see 'worker: crashed', refer to [Errors](#errors). If not, then FancyTweeter is up!
 
 ``` Shell
 $ heroku ps
@@ -122,7 +128,7 @@ Run ``` $ heroku logs ``` and read for errors, which will look something like th
 2017-03-26T01:15:16.554159+00:00 heroku[worker.1]: Starting process with command `python main.py`
 2017-03-26T01:15:17.880765+00:00 heroku[worker.1]: State changed from starting to up
 2017-03-26T01:15:19.154593+00:00 heroku[worker.1]: Process exited with status 0
-2017-03-26T01:15:19.037822+00:00 app[worker.1]: ERROR : connection failed. Check your OAuth keys.
+2017-03-26T01:15:19.037822+00:00 app[worker.1]: ERROR : connection failed. Check your OAuth keys.n
 2017-03-26T01:15:19.168674+00:00 heroku[worker.1]: State changed from up to crashed
 2017-03-26T01:15:19.168674+00:00 heroku[worker.1]: State changed from crashed to starting
 2017-03-26T01:15:22.902282+00:00 heroku[worker.1]: Starting process with command `python main.py`
@@ -154,7 +160,7 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 
 ## Acknowledgments
 
-Thank you @realDonaldTrump for inspiring this project.
+I love you Jack.
 
 [LICENSE]: ./LICENSE
 [license-badge]: https://img.shields.io/badge/license-MIT-brightgreen.svg
