@@ -159,6 +159,7 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 ## Acknowledgments
 
 I love you Jack.
+
 ![PoonSlayer][jackFace]
 
 [jackFace]: http://i.imgur.com/6SQUQRg.png "PoonSlayer"
